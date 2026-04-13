@@ -3,29 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BPartner Digital Bank</title>
+    <title>Digital Bank</title>
     <style>
-        /* Remove todas as margens e define o fundo preto */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: hidden; /* Impede barras de rolagem */
             background-color: black;
+            display: flex;
+            justify-content: center;
         }
-
-        /* Configura a imagem para ocupar a tela inteira */
-        .site-fullscreen {
+        .container {
             width: 100%;
-            height: 100%;
-            background-image: url('cartao.jpg'); /* CHAMA A SUA IMAGEM */
-            background-size: cover; /* Estica a imagem para cobrir tudo sem distorcer */
-            background-position: center; /* Centraliza a imagem */
-            background-repeat: no-repeat;
+            max-width: 100vw;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
     </style>
 </head>
 <body>
-    <div class="site-fullscreen"></div>
+    <div class="container">
+        <img src="cartao.JPG" alt="Dashboard">
+    </div>
 </body>
 </html>
