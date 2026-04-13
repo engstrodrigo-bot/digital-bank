@@ -4,157 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BPartner Digital Bank</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        body { 
-            background-color: #000; 
-            color: #fff; 
-            font-family: 'Inter', sans-serif; 
-            letter-spacing: -0.01em;
+        /* Remove todas as margens e define o fundo preto */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Impede barras de rolagem */
+            background-color: black;
         }
-        .bg-card { background-color: #0A0A0A; border: 1px solid #1A1A1A; }
-        .nav-link { color: #666; font-size: 13px; font-weight: 600; transition: 0.2s; text-transform: uppercase; }
-        .nav-link:hover { color: #fff; }
-        .nav-active { color: #fff; border-bottom: 2px solid #CC1F1F; }
-        .gold-card-container {
+
+        /* Configura a imagem para ocupar a tela inteira */
+        .site-fullscreen {
             width: 100%;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid #222;
+            height: 100%;
+            background-image: url('cartao.jpg'); /* CHAMA A SUA IMAGEM */
+            background-size: cover; /* Estica a imagem para cobrir tudo sem distorcer */
+            background-position: center; /* Centraliza a imagem */
+            background-repeat: no-repeat;
         }
     </style>
 </head>
-<body class="antialiased">
-
-    <header class="flex items-center justify-between px-10 py-5 border-b border-[#111] bg-black">
-        <div class="flex items-center gap-10">
-            <div class="flex items-center gap-2">
-                <div class="w-9 h-9 bg-[#CC1F1F] rounded-lg flex items-center justify-center font-black italic text-xl">B</div>
-                <span class="text-2xl font-bold tracking-tighter">Partner</span>
-            </div>
-            <nav class="hidden lg:flex gap-8">
-                <a href="#" class="nav-link nav-active pb-1">Painel</a>
-                <a href="#" class="nav-link">Contas</a>
-                <a href="#" class="nav-link">Transferências</a>
-                <a href="#" class="nav-link">Cartões</a>
-                <a href="#" class="nav-link">Menu</a>
-            </nav>
-        </div>
-        <div class="flex items-center gap-4">
-            <div class="text-right">
-                <p class="text-[10px] font-bold text-zinc-500 tracking-widest uppercase">JHON FELIX FERNANDES</p>
-            </div>
-            <div class="w-10 h-10 bg-zinc-900 rounded-full flex items-center justify-center text-xs font-bold text-zinc-400">JF</div>
-            <button class="bg-white text-black px-6 py-2 rounded-full text-xs font-bold hover:bg-gray-200 transition-all">Desconectar</button>
-        </div>
-    </header>
-
-    <main class="max-w-[1400px] mx-auto p-10 grid grid-cols-12 gap-10">
-        
-        <div class="col-span-12 lg:col-span-4 space-y-8">
-            <h1 class="text-3xl font-bold">Painel</h1>
-            
-            <div class="bg-card p-6 rounded-2xl flex justify-between items-center cursor-pointer hover:bg-[#111] transition-all">
-                <div>
-                    <p class="text-[10px] text-zinc-500 font-bold uppercase mb-1 tracking-wider">Conta corrente</p>
-                    <p class="text-3xl font-semibold">€ 0.10</p>
-                </div>
-                <i data-lucide="chevron-right" class="text-zinc-800"></i>
-            </div>
-
-            <div class="bg-card p-6 rounded-2xl flex justify-between items-center cursor-pointer hover:bg-[#111] transition-all">
-                <div>
-                    <p class="text-[10px] text-zinc-500 font-bold uppercase mb-1 tracking-wider">Conta multimoeda</p>
-                    <p class="text-3xl font-semibold">€ 3.43</p>
-                </div>
-                <i data-lucide="chevron-right" class="text-zinc-800"></i>
-            </div>
-
-            <div class="space-y-4">
-                <div class="flex justify-between items-center">
-                    <h2 class="text-sm font-bold uppercase tracking-widest text-zinc-400">Meus Cartões</h2>
-                    <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-600"></i>
-                </div>
-                <div class="gold-card-container shadow-2xl">
-                    <img src="cartao.png" class="w-full h-auto object-cover" alt="Visa Gold">
-                </div>
-            </div>
-        </div>
-
-        <div class="col-span-12 lg:col-span-8 space-y-12">
-            
-            <div class="grid grid-cols-2 gap-10">
-                <div class="space-y-6">
-                    <h2 class="text-xl font-bold">Acesso rápido <span class="text-zinc-800 ml-1">...</span></h2>
-                    <div class="flex gap-5">
-                        <div class="w-16 h-16 bg-card rounded-2xl flex items-center justify-center hover:bg-zinc-900 cursor-pointer transition-all">
-                            <i data-lucide="arrow-left-right" class="text-zinc-400"></i>
-                        </div>
-                        <div class="w-16 h-16 bg-card rounded-2xl flex items-center justify-center hover:bg-zinc-900 cursor-pointer transition-all">
-                            <i data-lucide="wallet" class="text-zinc-400"></i>
-                        </div>
-                        <div class="w-16 h-16 bg-card rounded-2xl flex items-center justify-center hover:bg-zinc-900 cursor-pointer transition-all">
-                            <i data-lucide="search" class="text-zinc-400"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="space-y-6">
-                    <h2 class="text-xl font-bold">Câmbio interbancário</h2>
-                    <div class="bg-card p-6 rounded-2xl flex items-center justify-between">
-                        <div class="text-center">
-                            <p class="text-2xl font-bold">1.00</p>
-                            <p class="text-[10px] text-zinc-600 font-bold uppercase">EUR</p>
-                        </div>
-                        <i data-lucide="refresh-cw" class="w-5 h-5 text-zinc-800"></i>
-                        <div class="text-center">
-                            <p class="text-2xl font-bold text-zinc-500">1.08</p>
-                            <p class="text-[10px] text-zinc-600 font-bold uppercase">USD</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="space-y-6">
-                <div class="flex justify-between items-center">
-                    <h2 class="text-xl font-bold">Fluxo de caixa</h2>
-                    <div class="flex gap-6 text-[10px] font-bold uppercase tracking-tighter">
-                        <span class="flex items-center gap-2 text-green-500"><div class="w-2.5 h-2.5 bg-green-600 rounded-sm"></div> Entradas</span>
-                        <span class="flex items-center gap-2 text-red-500"><div class="w-2.5 h-2.5 bg-red-600 rounded-sm"></div> Saídas</span>
-                    </div>
-                </div>
-                <div class="bg-card h-80 rounded-3xl p-10 flex items-end justify-between gap-8 relative overflow-hidden">
-                    <div class="flex-1 flex flex-col items-center gap-4 z-10">
-                        <div class="flex items-end gap-1.5 h-40">
-                            <div class="w-3.5 bg-green-600/30 h-16 rounded-t-sm"></div>
-                            <div class="w-3.5 bg-red-600/30 h-10 rounded-t-sm"></div>
-                        </div>
-                        <span class="text-[10px] text-zinc-600 font-bold">JAN.</span>
-                    </div>
-                    <div class="flex-1 flex flex-col items-center gap-4 z-10">
-                        <div class="flex items-end gap-2 h-40">
-                            <div class="w-5 bg-green-600 h-full rounded-t-sm shadow-[0_0_20px_rgba(34,197,94,0.2)]"></div>
-                            <div class="w-5 bg-red-600 h-[80%] rounded-t-sm shadow-[0_0_20px_rgba(239,68,68,0.2)]"></div>
-                        </div>
-                        <span class="text-[10px] text-zinc-300 font-bold">MARÇO.</span>
-                    </div>
-                    <div class="flex-1 flex flex-col items-center gap-4 z-10">
-                        <div class="flex items-end gap-1.5 h-40">
-                            <div class="w-3.5 bg-green-600/30 h-10 rounded-t-sm"></div>
-                            <div class="w-3.5 bg-red-600/30 h-14 rounded-t-sm"></div>
-                        </div>
-                        <span class="text-[10px] text-zinc-600 font-bold">APR.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <script>
-        // Inicia os ícones da biblioteca Lucide
-        lucide.createIcons();
-    </script>
+<body>
+    <div class="site-fullscreen"></div>
 </body>
 </html>
