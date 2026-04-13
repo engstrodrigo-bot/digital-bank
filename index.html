@@ -1,0 +1,183 @@
+import React, { useState } from 'react';
+import { 
+  LayoutDashboard, 
+  Wallet, 
+  ArrowLeftRight, 
+  CreditCard, 
+  Menu, 
+  ChevronRight,
+  RefreshCcw,
+  Search,
+  Users
+} from 'lucide-react';
+
+// --- Componente de Card Customizado ---
+const Card = ({ title, subtitle, value, icon: Icon, color, children, className = "" }) => (
+  <div className={`bg-[#0d0d0d] border border-[#1a1a1a] rounded-xl p-5 hover:border-[#333] transition-colors ${className}`}>
+    <div className="flex justify-between items-start mb-4">
+      <div>
+        <h3 className="text-gray-400 text-xs font-medium uppercase tracking-wider">{title}</h3>
+        <p className="text-gray-500 text-[10px]">{subtitle}</p>
+      </div>
+      <ChevronRight className="w-4 h-4 text-gray-600" />
+    </div>
+    <div className="flex items-center gap-3">
+      {Icon && (
+        <div className={`p-2 rounded-full ${color || 'bg-gray-800'}`}>
+          <Icon className="w-4 h-4 text-white" />
+        </div>
+      )}
+      <span className="text-white text-xl font-bold">{value}</span>
+    </div>
+    {children}
+  </div>
+);
+
+const Dashboard = () => {
+  const [eur, setEur] = useState('0.00');
+  const rate = 1.08; // Taxa simulada EUR/USD
+
+  return (
+    <div className="min-h-screen bg-black text-white font-sans">
+      {/* --- HEADER / NAVBAR (Igual à imagem) --- */}
+      <header className="flex items-center justify-between px-8 py-4 border-b border-[#1a1a1a] bg-black sticky top-0 z-50">
+        <div className="flex items-center gap-10">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-red-700 rounded-md flex items-center justify-center font-bold text-xl italic">B</div>
+            <span className="text-xl font-semibold tracking-tight">Partner</span>
+          </div>
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+            <a href="#" className="text-white border-b-2 border-red-600 pb-1">Painel</a>
+            <a href="#" className="hover:text-white transition-colors">Contas</a>
+            <a href="#" className="hover:text-white transition-colors">Transferências</a>
+            <a href="#" className="hover:text-white transition-colors">Cartões</a>
+            <a href="#" className="hover:text-white transition-colors">Menu</a>
+          </nav>
+        </div>
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 mr-4">
+            <div className="w-8 h-8 bg-[#1a1a1a] rounded-full flex items-center justify-center text-[10px] font-bold text-gray-400">JF</div>
+            <span className="text-xs font-medium hidden sm:block uppercase tracking-widest">Jhon Felix Fernandes</span>
+          </div>
+          <button className="bg-white text-black px-4 py-1.5 rounded-full text-xs font-bold hover:bg-gray-200 transition-colors">
+            Desconectar
+          </button>
+        </div>
+      </header>
+
+      {/* --- CONTEÚDO PRINCIPAL --- */}
+      <main className="max-w-[1400px] mx-auto p-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        {/* COLUNA ESQUERDA (Saldos e Cartão) */}
+        <div className="lg:col-span-4 space-y-6">
+          <h2 className="text-lg font-semibold">Painel</h2>
+          
+          <Card title="Conta corrente" subtitle="Saldo da conta corrente" value="€ 0.10" />
+          
+          <Card title="Conta multimoeda" subtitle="Saldo da conta multimoeda" value="€ 3.43" />
+
+          {/* Cartão Dourado Estilo BPartner */}
+          <div className="relative h-52 w-full rounded-2xl p-6 overflow-hidden bg-gradient-to-br from-[#c6a24d] via-[#e9d191] to-[#9c7a2d] shadow-2xl shadow-yellow-900/20">
+             <div className="absolute top-4 right-6 text-red-800 font-bold italic text-xl">B</div>
+             <div className="mt-8">
+               <div className="w-10 h-8 bg-[#9c7a2d]/30 rounded-md border border-white/20 mb-4"></div>
+               <div className="text-[#5c4412] font-medium tracking-widest text-sm uppercase">Jhon Felix Fernandes</div>
+               <div className="text-[#5c4412] text-xs opacity-80 mt-1">**** **** **** 3517</div>
+             </div>
+             <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end">
+               <div className="text-[10px] text-[#5c4412] uppercase font-bold">Expire no final 31-03-2031</div>
+               <div className="text-white font-black italic text-xl">VISA</div>
+             </div>
+             <div className="absolute top-4 right-4 bg-green-500/80 text-[10px] px-2 py-0.5 rounded-full text-white font-bold">Ativo</div>
+          </div>
+        </div>
+
+        {/* COLUNA DIREITA (Gráficos e Câmbio) */}
+        <div className="lg:col-span-8 space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Acesso Rápido */}
+            <div className="space-y-4">
+              <h2 className="text-lg font-semibold flex items-center gap-2">
+                Acesso rápido <span className="text-gray-600 text-xs">...</span>
+              </h2>
+              <div className="flex gap-4">
+                <div className="flex flex-col items-center gap-2 group cursor-pointer">
+                  <div className="w-12 h-12 rounded-lg border border-[#333] flex items-center justify-center group-hover:border-white transition-all">
+                    <ArrowLeftRight className="w-5 h-5" />
+                  </div>
+                  <span className="text-[10px] text-gray-400 uppercase">Transferência</span>
+                </div>
+                <div className="flex flex-col items-center gap-2 group cursor-pointer">
+                  <div className="w-12 h-12 rounded-lg border border-[#333] flex items-center justify-center group-hover:border-white transition-all">
+                    <Wallet className="w-5 h-5" />
+                  </div>
+                  <span className="text-[10px] text-gray-400 uppercase">Cofrinho</span>
+                </div>
+                <div className="flex flex-col items-center gap-2 group cursor-pointer">
+                  <div className="w-12 h-12 rounded-lg border border-[#333] flex items-center justify-center group-hover:border-white transition-all">
+                    <Search className="w-5 h-5" />
+                  </div>
+                  <span className="text-[10px] text-gray-400 uppercase">Pesquisas</span>
+                </div>
+                <div className="flex flex-col items-center gap-2 group cursor-pointer">
+                  <div className="w-12 h-12 rounded-lg border border-[#333] flex items-center justify-center group-hover:border-white transition-all">
+                    <Users className="w-5 h-5" />
+                  </div>
+                  <span className="text-[10px] text-gray-400 uppercase">Patrocínio</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Taxas de Câmbio */}
+            <div className="space-y-4">
+              <h2 className="text-lg font-semibold">Taxas de câmbio interbancárias</h2>
+              <div className="flex items-center gap-4 bg-[#0d0d0d] p-4 rounded-xl border border-[#1a1a1a]">
+                <div className="flex-1">
+                   <input 
+                    type="text" 
+                    value={eur} 
+                    onChange={(e) => setEur(e.target.value)}
+                    className="bg-transparent text-white text-2xl font-bold w-full outline-none" 
+                   />
+                   <p className="text-[10px] text-gray-500 uppercase mt-1">Moeda enviada</p>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                   <RefreshCcw className="w-4 h-4 text-gray-600" />
+                </div>
+                <div className="flex-1 text-right">
+                   <div className="text-2xl font-bold text-gray-400">{(parseFloat(eur || 0) * rate).toFixed(2)}</div>
+                   <p className="text-[10px] text-gray-500 uppercase mt-1">Moeda recebida</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Gráfico de Fluxo de Caixa */}
+          <div className="space-y-4">
+            <div className="flex justify-between items-center">
+               <h2 className="text-lg font-semibold">Fluxo de caixa</h2>
+               <div className="flex gap-4 text-[10px] uppercase font-bold">
+                 <span className="flex items-center gap-1"><div className="w-2 h-2 bg-green-600 rounded-sm"></div> Entradas</span>
+                 <span className="flex items-center gap-1"><div className="w-2 h-2 bg-red-600 rounded-sm"></div> Saídas</span>
+               </div>
+            </div>
+            <div className="bg-[#0d0d0d] border border-[#1a1a1a] rounded-xl p-6 h-64 flex items-end justify-between gap-6">
+               {['Nov.', 'Dezembro.', 'Jan.', 'Feb.', 'Março.', 'Apr.'].map((mes) => (
+                 <div key={mes} className="flex-1 flex flex-col items-center gap-2">
+                    <div className="w-full flex justify-center items-end gap-1 h-40">
+                      {/* Barras de Entrada e Saída (Altura simulada) */}
+                      <div className={`w-3 bg-green-600/80 rounded-t-sm ${mes === 'Março.' ? 'h-full' : 'h-10'}`}></div>
+                      <div className={`w-3 bg-red-600/80 rounded-t-sm ${mes === 'Março.' ? 'h-3/4' : 'h-8'}`}></div>
+                    </div>
+                    <span className="text-[10px] text-gray-500 uppercase tracking-tighter">{mes}</span>
+                 </div>
+               ))}
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+};
+
+export default Dashboard;
