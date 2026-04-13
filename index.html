@@ -3,30 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Bank</title>
+    <title>BPartner Digital Bank</title>
     <style>
+        /* Linha 1: Garante que o fundo seja sempre preto para não dar clarão */
         body, html {
             margin: 0;
             padding: 0;
+            width: 100%;
             height: 100%;
-            background-color: black;
+            background-color: #000;
             display: flex;
             justify-content: center;
+            align-items: flex-start;
         }
+
+        /* Linha 2: O contêiner ocupa a largura total disponível */
         .container {
             width: 100%;
             max-width: 100vw;
         }
+
+        /* Linha 3: A imagem deve carregar o nome EXATO do arquivo no GitHub */
         img {
             width: 100%;
             height: auto;
             display: block;
+            border: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="cartao.JPG" alt="Dashboard">
+        <img src="cartao.png" alt="Dashboard BPartner">
     </div>
 </body>
 </html>
