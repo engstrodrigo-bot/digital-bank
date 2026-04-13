@@ -3,172 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Bank - BPartner Professional</title>
+    <title>BPartner Digital Bank</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/font/lucide.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        body { background-color: black; color: white; font-family: 'Inter', sans-serif; font-weight: 500; }
-        .gold-card {
-            background: linear-gradient(135deg, #f9e2b0 0%, #eac266 25%, #d1a337 50%, #f9e2b0 75%, #eac266 100%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        body { 
+            background-color: #000; 
+            color: #fff; 
+            font-family: 'Inter', sans-serif; 
+            letter-spacing: -0.01em;
         }
-        .graph-bar-in { background-color: #22c55e; }
-        .graph-bar-out { background-color: #ef4444; }
+        .bg-card { background-color: #0A0A0A; border: 1px solid #1A1A1A; }
+        .nav-link { color: #666; font-size: 13px; font-weight: 600; transition: 0.2s; text-transform: uppercase; }
+        .nav-link:hover { color: #fff; }
+        .nav-active { color: #fff; border-bottom: 2px solid #CC1F1F; }
+        .gold-card-container {
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #222;
+        }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body class="antialiased">
-    <header class="flex items-center justify-between px-8 py-5 border-b border-zinc-800 bg-black sticky top-0 z-50">
+
+    <header class="flex items-center justify-between px-10 py-5 border-b border-[#111] bg-black">
         <div class="flex items-center gap-10">
-            <div class="flex items-center gap-2.5">
-                <div class="w-9 h-9 bg-red-700 rounded-lg flex items-center justify-center font-extrabold text-2xl italic text-white shadow-lg">B</div>
-                <span class="text-2xl font-extrabold tracking-tight text-white">Partner</span>
+            <div class="flex items-center gap-2">
+                <div class="w-9 h-9 bg-[#CC1F1F] rounded-lg flex items-center justify-center font-black italic text-xl">B</div>
+                <span class="text-2xl font-bold tracking-tighter">Partner</span>
             </div>
-            <nav class="hidden md:flex items-center gap-9 text-sm font-semibold text-zinc-400">
-                <a href="#" class="text-white border-b-2 border-red-600 pb-1.5">Painel</a>
-                <a href="#" class="hover:text-white transition-colors">Contas</a>
-                <a href="#" class="hover:text-white transition-colors">Transferências</a>
-                <a href="#" class="hover:text-white transition-colors">Cartões</a>
-                <a href="#" class="hover:text-white transition-colors">Menu</a>
+            <nav class="hidden lg:flex gap-8">
+                <a href="#" class="nav-link nav-active pb-1">Painel</a>
+                <a href="#" class="nav-link">Contas</a>
+                <a href="#" class="nav-link">Transferências</a>
+                <a href="#" class="nav-link">Cartões</a>
+                <a href="#" class="nav-link">Menu</a>
             </nav>
         </div>
         <div class="flex items-center gap-4">
-            <div class="flex items-center gap-3 mr-4">
-                <div class="w-10 h-10 bg-zinc-900 rounded-full flex items-center justify-center font-bold text-xs text-zinc-500">JF</div>
-                <div class="text-right">
-                    <span class="text-xs font-bold text-zinc-500 uppercase tracking-widest block">JHON FELIX FERNANDES</span>
-                </div>
+            <div class="text-right">
+                <p class="text-[10px] font-bold text-zinc-500 tracking-widest uppercase">JHON FELIX FERNANDES</p>
             </div>
-            <button class="bg-white text-black px-6 py-2 rounded-full text-xs font-bold hover:bg-zinc-200 transition-all shadow-md">
-                Desconectar
-            </button>
+            <div class="w-10 h-10 bg-zinc-900 rounded-full flex items-center justify-center text-xs font-bold text-zinc-400">JF</div>
+            <button class="bg-white text-black px-6 py-2 rounded-full text-xs font-bold hover:bg-gray-200 transition-all">Desconectar</button>
         </div>
     </header>
 
-    <main class="max-w-[1400px] mx-auto p-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
-        <div class="lg:col-span-4 space-y-8">
-            <h1 class="text-3xl font-extrabold text-white">Painel</h1>
+    <main class="max-w-[1400px] mx-auto p-10 grid grid-cols-12 gap-10">
+        
+        <div class="col-span-12 lg:col-span-4 space-y-8">
+            <h1 class="text-3xl font-bold">Painel</h1>
             
-            <div class="bg-zinc-950 border border-zinc-900 rounded-2xl p-6 shadow-xl">
-                <div class="flex justify-between items-start mb-5">
-                    <div class="space-y-1">
-                        <h3 class="text-zinc-500 text-xs font-semibold uppercase tracking-wider">Conta corrente</h3>
-                        <p class="text-zinc-700 text-[11px]">Seu saldo total disponível</p>
-                    </div>
-                    <i class="lucide-chevron-right w-4 h-4 text-zinc-700"></i>
+            <div class="bg-card p-6 rounded-2xl flex justify-between items-center cursor-pointer hover:bg-[#111] transition-all">
+                <div>
+                    <p class="text-[10px] text-zinc-500 font-bold uppercase mb-1 tracking-wider">Conta corrente</p>
+                    <p class="text-3xl font-semibold">€ 0.10</p>
                 </div>
-                <div class="flex items-center gap-4">
-                    <div class="p-2.5 bg-zinc-900 rounded-full">
-                        <i class="lucide-wallet w-5 h-5 text-zinc-400"></i>
-                    </div>
-                    <div class="text-white text-3xl font-extrabold">€ 0.10</div>
-                </div>
+                <i data-lucide="chevron-right" class="text-zinc-800"></i>
             </div>
 
-            <div class="bg-zinc-950 border border-zinc-900 rounded-2xl p-6 shadow-xl">
-                <div class="flex justify-between items-start mb-5">
-                    <div class="space-y-1">
-                        <h3 class="text-zinc-500 text-xs font-semibold uppercase tracking-wider">Conta multimoeda</h3>
-                        <p class="text-zinc-700 text-[11px]">Saldo em múltiplas moedas (USD, EUR...)</p>
-                    </div>
-                    <i class="lucide-chevron-right w-4 h-4 text-zinc-700"></i>
+            <div class="bg-card p-6 rounded-2xl flex justify-between items-center cursor-pointer hover:bg-[#111] transition-all">
+                <div>
+                    <p class="text-[10px] text-zinc-500 font-bold uppercase mb-1 tracking-wider">Conta multimoeda</p>
+                    <p class="text-3xl font-semibold">€ 3.43</p>
                 </div>
-                <div class="flex items-center gap-4">
-                    <div class="p-2.5 bg-zinc-900 rounded-full">
-                        <i class="lucide-globe w-5 h-5 text-zinc-400"></i>
-                    </div>
-                    <div class="text-white text-3xl font-extrabold">€ 3.43</div>
-                </div>
+                <i data-lucide="chevron-right" class="text-zinc-800"></i>
             </div>
 
-            <div class="gold-card relative h-56 w-full rounded-2xl p-7 shadow-2xl overflow-hidden">
-                <div class="absolute top-5 right-7 text-red-950 font-black italic text-2xl opacity-60">B</div>
-                <div class="mt-10">
-                    <div class="w-11 h-9 bg-black/5 rounded-md border border-white/20 mb-5 flex items-center justify-center">
-                        <i class="lucide-credit-card w-5 h-5 text-amber-950 opacity-40"></i>
-                    </div>
-                    <div class="text-amber-950 font-extrabold tracking-widest text-sm uppercase">JHON FELIX FERNANDES</div>
-                    <div class="text-amber-950 text-xs font-semibold mt-1.5 opacity-80">**** **** **** 3517</div>
+            <div class="space-y-4">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-sm font-bold uppercase tracking-widest text-zinc-400">Meus Cartões</h2>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-600"></i>
                 </div>
-                <div class="absolute bottom-6 left-7 right-7 flex justify-between items-end">
-                    <div class="text-[10px] text-amber-950 uppercase font-extrabold opacity-70">EXPIRE NO FINAL 31-03-2031</div>
-                    <div class="text-white font-black italic text-2xl">VISA</div>
+                <div class="gold-card-container shadow-2xl">
+                    <img src="cartao.png" class="w-full h-auto object-cover" alt="Visa Gold">
                 </div>
-                <div class="absolute top-5 right-5 bg-green-600 text-[11px] px-3 py-1 rounded-full text-white font-bold uppercase tracking-wide">Ativo</div>
             </div>
         </div>
 
-        <div class="lg:col-span-8 space-y-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="space-y-5">
-                    <h2 class="text-xl font-bold flex items-center gap-2">Acesso rápido <span class="text-zinc-700">...</span></h2>
+        <div class="col-span-12 lg:col-span-8 space-y-12">
+            
+            <div class="grid grid-cols-2 gap-10">
+                <div class="space-y-6">
+                    <h2 class="text-xl font-bold">Acesso rápido <span class="text-zinc-800 ml-1">...</span></h2>
                     <div class="flex gap-5">
-                        <div class="flex flex-col items-center gap-2.5 group cursor-pointer">
-                            <div class="w-14 h-14 rounded-xl border-2 border-zinc-900 flex items-center justify-center group-hover:border-white group-hover:bg-zinc-950 transition-all">
-                                <i class="lucide-arrow-left-right w-6 h-6 text-zinc-400 group-hover:text-white"></i>
-                            </div>
-                            <span class="text-[11px] text-zinc-600 uppercase font-bold tracking-tight">Transferência</span>
+                        <div class="w-16 h-16 bg-card rounded-2xl flex items-center justify-center hover:bg-zinc-900 cursor-pointer transition-all">
+                            <i data-lucide="arrow-left-right" class="text-zinc-400"></i>
                         </div>
-                        <div class="flex flex-col items-center gap-2.5 group cursor-pointer">
-                            <div class="w-14 h-14 rounded-xl border-2 border-zinc-900 flex items-center justify-center group-hover:border-white group-hover:bg-zinc-950 transition-all">
-                                <i class="lucide-wallet w-6 h-6 text-zinc-400 group-hover:text-white"></i>
-                            </div>
-                            <span class="text-[11px] text-zinc-600 uppercase font-bold tracking-tight">Cofrinho</span>
+                        <div class="w-16 h-16 bg-card rounded-2xl flex items-center justify-center hover:bg-zinc-900 cursor-pointer transition-all">
+                            <i data-lucide="wallet" class="text-zinc-400"></i>
+                        </div>
+                        <div class="w-16 h-16 bg-card rounded-2xl flex items-center justify-center hover:bg-zinc-900 cursor-pointer transition-all">
+                            <i data-lucide="search" class="text-zinc-400"></i>
                         </div>
                     </div>
                 </div>
 
-                <div class="space-y-5">
-                    <h2 class="text-xl font-bold">Taxas de câmbio</h2>
-                    <div class="bg-zinc-950 p-5 rounded-2xl border border-zinc-900 flex items-center justify-between shadow-xl">
-                        <div>
-                            <div class="text-3xl font-extrabold text-white">1.00</div>
-                            <p class="text-[11px] text-zinc-600 uppercase font-bold mt-1.5">EUR - Euro</p>
+                <div class="space-y-6">
+                    <h2 class="text-xl font-bold">Câmbio interbancário</h2>
+                    <div class="bg-card p-6 rounded-2xl flex items-center justify-between">
+                        <div class="text-center">
+                            <p class="text-2xl font-bold">1.00</p>
+                            <p class="text-[10px] text-zinc-600 font-bold uppercase">EUR</p>
                         </div>
-                        <div class="flex flex-col items-center gap-1.5 text-zinc-800">
-                            <i class="lucide-refresh-cw w-5 h-5"></i>
-                            <div class="text-[10px] font-bold">Câmbio</div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-3xl font-extrabold text-zinc-400">1.08</div>
-                            <p class="text-[11px] text-zinc-600 uppercase font-bold mt-1.5">USD - Dólar</p>
+                        <i data-lucide="refresh-cw" class="w-5 h-5 text-zinc-800"></i>
+                        <div class="text-center">
+                            <p class="text-2xl font-bold text-zinc-500">1.08</p>
+                            <p class="text-[10px] text-zinc-600 font-bold uppercase">USD</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="space-y-5">
+            <div class="space-y-6">
                 <div class="flex justify-between items-center">
                     <h2 class="text-xl font-bold">Fluxo de caixa</h2>
-                    <div class="flex gap-5 text-[11px] uppercase font-bold">
-                        <span class="flex items-center gap-1.5 text-green-500"><div class="w-2.5 h-2.5 graph-bar-in rounded-sm"></div> Entradas</span>
-                        <span class="flex items-center gap-1.5 text-red-500"><div class="w-2.5 h-2.5 graph-bar-out rounded-sm"></div> Saídas</span>
+                    <div class="flex gap-6 text-[10px] font-bold uppercase tracking-tighter">
+                        <span class="flex items-center gap-2 text-green-500"><div class="w-2.5 h-2.5 bg-green-600 rounded-sm"></div> Entradas</span>
+                        <span class="flex items-center gap-2 text-red-500"><div class="w-2.5 h-2.5 bg-red-600 rounded-sm"></div> Saídas</span>
                     </div>
                 </div>
-                <div class="bg-zinc-950 border border-zinc-900 rounded-2xl p-8 h-80 flex items-end justify-between gap-6 shadow-2xl relative">
-                    <div class="absolute inset-x-8 top-8 bottom-16 border-t border-zinc-900 opacity-50"></div>
-                    <div class="absolute inset-x-8 top-1/2 bottom-16 border-t border-zinc-900 opacity-50"></div>
-
-                    <div class="flex-1 flex flex-col items-center gap-3 z-10">
-                        <div class="flex items-end gap-1.5 h-48 w-full justify-center">
-                            <div class="w-4 graph-bar-in rounded-t-sm h-16 shadow-lg shadow-green-900/30"></div>
-                            <div class="w-4 graph-bar-out rounded-t-sm h-10 shadow-lg shadow-red-900/30"></div>
+                <div class="bg-card h-80 rounded-3xl p-10 flex items-end justify-between gap-8 relative overflow-hidden">
+                    <div class="flex-1 flex flex-col items-center gap-4 z-10">
+                        <div class="flex items-end gap-1.5 h-40">
+                            <div class="w-3.5 bg-green-600/30 h-16 rounded-t-sm"></div>
+                            <div class="w-3.5 bg-red-600/30 h-10 rounded-t-sm"></div>
                         </div>
-                        <span class="text-[11px] text-zinc-600 uppercase font-bold">Jan.</span>
+                        <span class="text-[10px] text-zinc-600 font-bold">JAN.</span>
                     </div>
-                    <div class="flex-1 flex flex-col items-center gap-3 z-10">
-                        <div class="flex items-end gap-1.5 h-48 w-full justify-center">
-                            <div class="w-4 graph-bar-in rounded-t-sm h-full shadow-lg shadow-green-900/30"></div>
-                            <div class="w-4 graph-bar-out rounded-t-sm h-3/4 shadow-lg shadow-red-900/30"></div>
+                    <div class="flex-1 flex flex-col items-center gap-4 z-10">
+                        <div class="flex items-end gap-2 h-40">
+                            <div class="w-5 bg-green-600 h-full rounded-t-sm shadow-[0_0_20px_rgba(34,197,94,0.2)]"></div>
+                            <div class="w-5 bg-red-600 h-[80%] rounded-t-sm shadow-[0_0_20px_rgba(239,68,68,0.2)]"></div>
                         </div>
-                        <span class="text-[11px] text-zinc-600 uppercase font-bold">Março.</span>
+                        <span class="text-[10px] text-zinc-300 font-bold">MARÇO.</span>
                     </div>
-                    <div class="flex-1 flex flex-col items-center gap-3 z-10">
-                        <div class="flex items-end gap-1.5 h-48 w-full justify-center">
-                            <div class="w-4 graph-bar-in rounded-t-sm h-8 shadow-lg shadow-green-900/30"></div>
-                            <div class="w-4 graph-bar-out rounded-t-sm h-6 shadow-lg shadow-red-900/30"></div>
+                    <div class="flex-1 flex flex-col items-center gap-4 z-10">
+                        <div class="flex items-end gap-1.5 h-40">
+                            <div class="w-3.5 bg-green-600/30 h-10 rounded-t-sm"></div>
+                            <div class="w-3.5 bg-red-600/30 h-14 rounded-t-sm"></div>
                         </div>
-                        <span class="text-[11px] text-zinc-600 uppercase font-bold">Abr.</span>
+                        <span class="text-[10px] text-zinc-600 font-bold">APR.</span>
                     </div>
                 </div>
             </div>
@@ -176,7 +153,7 @@
     </main>
 
     <script>
-        // Inicializa ícones lucide
+        // Inicia os ícones da biblioteca Lucide
         lucide.createIcons();
     </script>
 </body>
